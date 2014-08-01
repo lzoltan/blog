@@ -5,6 +5,10 @@
 <% @posts.each do |p| %>
 <h2><%= link_to p.title, p %></h2>
 <p><%= p.content %></p>
+<p>
+<%= link_to 'Edit', edit_post_path(p)%>
+<%= link_to 'Delete', post_path(p), :confirm => "Are you sure?"  %>
+</p>
 <hr>
 <% end %> 
 
