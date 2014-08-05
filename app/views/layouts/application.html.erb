@@ -18,7 +18,7 @@
 				<%= image_tag("nouser.jpg") %>
 				<%= current_user.username%>
 				<li>
-				<a><%= link_to('Sign out',:destroy_user_session)%></a>
+				<a><%= link_to('Sign out',:destroy_user_session	)%></a>
 			<% else %>
 				<li>
 				<%= link_to('Sign_in',:new_user_session) %>

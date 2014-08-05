@@ -5,12 +5,16 @@ class PostsController < ApplicationController
 
   def create
   	@post = Post.new(post_params)
-  	
+  	@post.user = current_user
   	if @post.save
   		redirect_to posts_path , :notice => "Your post was saved"
   	else
   		render "new"
   	end
+  end
+
+  def mypost
+  	@z='haha'
   end
 
   def edit
@@ -20,7 +24,7 @@ class PostsController < ApplicationController
   def update
   	@post = Post.find(params[:id])
   	
-  	if @post.update_attributes(post_params)
+  	if @post.update_attributes(post_params_update)
   		redirect_to posts_path , :notice => "Your post was updated"
   	else
   		render "edit"
@@ -46,7 +50,13 @@ class PostsController < ApplicationController
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
     def post_params
-      params.required(:post).permit(:title, :content)
+      params.required(:post).permit(:content, :user_id)
+
+    end
+
+    def post_params_update
+      params.required(:post).permit(:content)
+
     end
 
 

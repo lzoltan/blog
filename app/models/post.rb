@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
-   validates :title, :content, :presence => true
-   validates :title, :length => {:minimum => 2}
-   validates :title, :uniqueness => true
+   validates :content, :presence => true
 
+   belongs_to :user
 end

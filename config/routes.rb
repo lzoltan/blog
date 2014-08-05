@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  devise_scope :users do
+    get 'register', to: 'devise/registrations#new', as: :register
+  end
+
   resources :posts
   root to: "posts#index"
 
