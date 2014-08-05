@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title Blog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{:href => "#"} Blog
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %li
+                = image_tag("nouser.jpg")
+                = current_user.username
+              %li
+                %a= link_to('Sign out',:destroy_user_session	)
+            - else
+              %li
+                = link_to('Sign_in',:new_user_session)
+              %li
+                = link_to('Register',:new_user_session)
+    .container
+      %p.notice= notice
+      %p.alert= alert
+      = yield
