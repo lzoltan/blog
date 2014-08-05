@@ -11,14 +11,30 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<a class="brand" href="#">Blog</a>
+			<ul class="nav pull-right">
+			
+			<% if user_signed_in? %>
+				<li>
+				<%= image_tag("nouser.jpg") %>
+				<%= current_user.username%>
+				<li>
+				<a><%= link_to('Sign out',:destroy_user_session)%></a>
+			<% else %>
+				<li>
+				<%= link_to('Sign_in',:new_user_session) %>
+				<li>
+				<%= link_to('Register',:new_user_session) %>
+			<% end %>
+			</ul>
 		</div>
 	</div>
 </div>
 
 <div class="container">
-<% flash.each do |key,value| %>
-<p><%= "#{key} :" %><%= value %></p>
-<% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
 
 <%= yield %>
 </div>
