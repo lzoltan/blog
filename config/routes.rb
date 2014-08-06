@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+mount Judge::Engine => '/judge'
   devise_for :users
   devise_scope :users do
     get 'register', to: 'devise/registrations#new', as: :register

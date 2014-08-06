@@ -43,11 +43,12 @@ SimpleForm.setup do |config|
     b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :judge
   end
 
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
-
+  
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
@@ -111,7 +112,7 @@ SimpleForm.setup do |config|
   # in this configuration, which is recommended due to some quirks from different browsers.
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
-  config.browser_validations = false
+  config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
