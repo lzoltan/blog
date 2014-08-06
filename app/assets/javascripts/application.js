@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require judge
 //= require_tree .
 //= javascript_include_tag :application
