@@ -5,4 +5,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	 redirect_to posts_path
 	end
 
+	def facebook
+	 redirect_to posts_path
+	end
+
 end

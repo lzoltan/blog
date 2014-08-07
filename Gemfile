@@ -25,8 +25,17 @@ gem 'country_select'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-
-# Use jquery as the JavaScript library
+group :development, :test do 
+	gem 'rspec-rails' 
+	gem 'factory_girl_rails' 
+end
+group :test do 
+	gem 'faker'
+ 	gem 'capybara'
+ 	gem 'guard-rspec'
+ 	gem 'launchy'
+end 
+   # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
