@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-describe Post do
-it "'s user_id has to be a number" do
- FactoryGirl.create(:post).should be_valid
+RSpec.describe Post do
+	describe "'s user_id has to be a number" do
+		before {@u=FactoryGirl.create(:post)}
+ 		specify { expect(@u.user_id).to be(1) }
 end
 
 end 

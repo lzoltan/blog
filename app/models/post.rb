@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
    validates :content, :presence => true
 
-   has_one :user
+   belongs_to :user
 
    def self.from_user(name)
    		where{user_id.in(User.where{username.matches "#{name}" })}

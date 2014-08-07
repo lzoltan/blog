@@ -24,7 +24,7 @@ gem 'devise'
 gem 'country_select'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-
+gem 'high_voltage'
 group :development, :test do 
 	gem 'rspec-rails' 
 	gem 'factory_girl_rails' 

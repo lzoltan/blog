@@ -21,7 +21,9 @@
               %li
                 = link_to('Sign_in',:new_user_session)
               %li
-                = link_to('Twitter sign in',user_omniauth_authorize_path(:twitter))  
+                = link_to('Twitter login',user_omniauth_authorize_path(:twitter))  
+              %li
+                = link_to('Facebook login',user_omniauth_authorize_path(:facebook))  
               %li
                 = link_to('Register',:new_user_session)
     .container
