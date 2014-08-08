@@ -1,7 +1,15 @@
 class PostsController < ApplicationController
+
+  before_filter :authenticate_user!
+
+
   def index
-  	@posts = Post.order("created_at").all
-  end
+    if params[:search]
+      @posts = Post.search(params[:search])
+    else
+  	 @posts = Post.order("created_at").all
+    end
+  end 
 
   def create
   	@post = Post.new(post_params)
@@ -13,9 +21,7 @@ class PostsController < ApplicationController
   	end
   end
 
-  def mypost
-  	@z='haha'
-  end
+
 
   def edit
   	@post = Post.find(params[:id])

@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
    end
 
    def self.search(text)
-   		where{content.matches "#{text}"}
+   		where{content.matches "%#{text}%"}
    end
 
    def self.from_time(ago) 

@@ -1,5 +1,9 @@
 h1 Posts
+
+p= render "search"
+
 p= link_to 'Add new post' , new_post_path, class: "btn btn-primary"
+
 - @posts.each do |p|
   h2= link_to p.user.username, p
   p= p.content
