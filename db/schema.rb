@@ -16,16 +16,16 @@ ActiveRecord::Schema.define(version: 20140808092127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "friends", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.string   "action"
+  create_table "friend_ships", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "friend_id",  null: false
+    t.string   "status",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
-    t.text     "content"
+    t.text     "content",    default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20140808092127) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "username"
+    t.string   "first_name",             default: ""
+    t.string   "last_name",              default: ""
+    t.string   "username",               default: ""
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

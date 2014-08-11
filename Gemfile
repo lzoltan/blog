@@ -26,6 +26,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'high_voltage'
 group :development, :test do 
+	gem 'railroady'
+	gem 'seed_dump'
 	gem 'rspec-rails' 
 	gem 'factory_girl_rails' 
 end

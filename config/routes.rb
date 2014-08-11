@@ -8,7 +8,9 @@ mount Judge::Engine => '/judge'
     get 'register', to: 'devise/registrations#new', as: :register
   end
 
-  resources :users  
+  resources :users do
+    get :my_user, :on => :collection
+  end 
   resources :posts
   root to: "posts#index"
   

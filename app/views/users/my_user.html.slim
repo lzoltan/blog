@@ -1,4 +1,11 @@
-h4 =@user.username
+h3 My user settings
+
+hr 
+strong Username:
+- if !@user.username.nil?
+   p= @user.username
+- else
+  p none			
 strong First name:
 - if !@user.first_name.nil?
    p= @user.first_name
@@ -13,3 +20,5 @@ hr
 strong Email
 p= @user.email
 hr
+strong Password
+p <button>
