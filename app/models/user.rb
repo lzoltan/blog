@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :post
-  
-has_many :friend_ships
-has_many :friends, :through => :friend_ships
-has_many :inverse_friend_ships, :class_name => "FriendShip", :foreign_key => "friend_id"
-has_many :inverse_friends, :through => :inverse_friend_ships, :source => :user
+	has_many :posts
+	acts_as_followable
+	acts_as_follower
+	acts_as_voter
+	  
+	has_many :friendships
+	has_many :friends, :through => :friendships
+	has_many :inverse_friendships, :class_name => "FriendShip", :foreign_key => "friend_id"
+	has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
 
   devise :database_authenticatable, :registerable,

@@ -1,0 +1,17 @@
+h1 Listing friends
+table
+  thead
+    tr
+      th Friend
+      th Action
+      th colspan="3" 
+  tbody
+    - @friends.each do |f|
+      tr
+        td= f.friend.username
+        td= f.status
+        td= link_to 'Show', f
+        td= link_to 'Edit', edit_friendship_path(f)
+        td= link_to 'Destroy', f, method: :delete, :data => {confirm: 'Are you sure?'}  
+br/
+= link_to 'New Friend', new_friendship_path

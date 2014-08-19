@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name, default: ""
       t.string :last_name,  default: ""
       t.string :username,  default: ""
+      t.string :type, default: "normal"
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

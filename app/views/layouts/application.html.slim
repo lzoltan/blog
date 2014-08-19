@@ -1,32 +1,32 @@
-!!!
-%html
-  %head
-    %title Blog
+doctype html
+html
+  head
+    title Blog
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.brand{:href => "#"} Blog
-          %ul.nav.pull-right
+          a.brand href="#"  Blog
+          ul.nav.pull-right
             - if user_signed_in?
-              %li
+              li
                 = image_tag("nouser.jpg")
                 = current_user.username
-              %li
-                %a= link_to('Sign out',:destroy_user_session	)
+              li
+                a= link_to('Sign out',:destroy_user_session	)
             - else
-              %li
+              li
                 = link_to('Sign_in',:new_user_session)
-              %li
-                = link_to('Twitter login',user_omniauth_authorize_path(:twitter))  
-              %li
-                = link_to('Facebook login',user_omniauth_authorize_path(:facebook))  
-              %li
+              li
+                = link_to('Twitter login',user_omniauth_authorize_path(:twitter))
+              li
+                = link_to('Facebook login',user_omniauth_authorize_path(:facebook))
+              li
                 = link_to('Register',:new_user_session)
     .container
-      %p.notice= notice
-      %p.alert= alert
+      p.notice= notice
+      p.alert= alert
       = yield

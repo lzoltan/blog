@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
    validates :content, :presence => true
-
+   self.per_page=20
+   acts_as_votable
    belongs_to :user
 
    def self.from_user(name)

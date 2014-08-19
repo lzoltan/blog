@@ -1,0 +1,13 @@
+p#notice= notice
+p
+  strong User:
+  = @friend.user_id
+p
+  strong Friend:
+  = @friend.friend_id
+p
+  strong Action:
+  = @friend.action
+= link_to 'Edit', edit_friendship_path(@friend)
+| \
+| \#{link_to 'Back', friendship_path}

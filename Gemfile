@@ -25,6 +25,11 @@ gem 'country_select'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'high_voltage'
+gem 'acts_as_votable'
+gem 'acts_as_follower'
+gem 'acts_as_commentable'
+gem 'will_paginate'
+
 group :development, :test do 
 	gem 'railroady'
 	gem 'seed_dump'
