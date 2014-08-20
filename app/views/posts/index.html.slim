@@ -3,11 +3,16 @@ h1 Posts
 p= render "search"
 
 p= link_to 'Add new post' , new_post_path, class: "btn btn-primary"
-
 - @posts.each do |p|
-  h2= link_to p.user.username, p
-  p= p.content
-  p
-    = link_to 'Edit', edit_post_path(p)
-    = link_to 'Delete', p, :method=>'delete', data: {:confirm => "Are you sure?"}
-  hr/
+  	strong = link_to p.user.username, p.user	
+  	p= link_to p.content, p
+  	p
+  		= "#{p.get_likes.count} Likes "
+    	= link_to 'Edit', edit_post_path(p)
+    	= link_to 'Delete', p, :method=>'delete', data: {:confirm => "Are you sure?"}
+
+  		hr
+= will_paginate @posts
+
+
+  

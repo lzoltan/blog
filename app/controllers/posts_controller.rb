@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if params[:search]
       @posts = Post.search(params[:search])
     else
-  	 @posts = Post.order("created_at").all
+  	 @posts = Post.paginate(:page => params[:page]).where(user: current_user)
     end
   end 
 

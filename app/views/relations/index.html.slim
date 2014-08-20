@@ -1,0 +1,8 @@
+h1 Listing relations
+= link_to 'Add friend', new_relation_path, class: "btn btn-primary"
+hr
+- @relations.each do |relation|
+  p
+    strong= relation.relation.username
+    = link_to 'Remove friend', relation, :method=>'delete', data: {:confirm => "Are you sure?"}, class: "btn btn-primary"
+    hr

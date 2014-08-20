@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  
+  rolify :before_add => :before_add_method
+
+  def before_add_method
+  	self.add_role :basic
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 	has_many :posts
@@ -6,10 +13,10 @@ class User < ActiveRecord::Base
 	acts_as_follower
 	acts_as_voter
 	  
-	has_many :friendships
-	has_many :friends, :through => :friendships
-	has_many :inverse_friendships, :class_name => "FriendShip", :foreign_key => "friend_id"
-	has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+	has_many :relation
+	has_many :friends, :through => :relation
+	has_many :inverse_relation, :class_name => "Relation", :foreign_key => "relation_id"
+	has_many :inverse_friends, :through => :inverse_relation, :source => :user
 
 
   devise :database_authenticatable, :registerable,

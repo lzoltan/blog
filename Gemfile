@@ -29,6 +29,7 @@ gem 'acts_as_votable'
 gem 'acts_as_follower'
 gem 'acts_as_commentable'
 gem 'will_paginate'
+gem 'rolify'
 
 group :development, :test do 
 	gem 'railroady'
